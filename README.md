@@ -8,6 +8,9 @@ GEMINI-GPT ESP32 Chatbot is an AI-powered embedded chatbot built with ESP32, fea
 **Date:** 2025  
 
 ---
+# QUICK DEMO:
+https://github.com/user-attachments/assets/85452e55-8808-4d17-b9f8-3606ac7390aa
+---
 
 ## 🔹 Project Overview
 
