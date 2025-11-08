@@ -79,6 +79,7 @@ The project demonstrates how embedded hardware can interact with cloud AI models
 
 ![20251108_140510](https://github.com/user-attachments/assets/c3cb9094-a34a-4250-8fe2-f95f02393c77)
 ![20251108_140518](https://github.com/user-attachments/assets/29bdf7eb-e4ee-4850-9d70-0da0c6eea7c4)
-<img width="1919" height="1024" alt="Screenshot 2025-11-07 232655" src="https://github.com/user-attachments/assets/907ee161-e056-4d15-9379-1273f717964d" />
-<img width="1919" height="1079" alt="Screenshot 2025-11-08 141953" src="https://github.com/user-attachments/assets/42a8d54e-a133-4b57-bcad-54986dcc9814" />
+![20251108_140510](https://github.com/user-attachments/assets/6b6f80e4-988b-4e98-ab38-648f3b65f1a5)
+![20251108_141946](https://github.com/user-attachments/assets/08ea83ed-ac8b-4484-830e-1e08573c1451)
+![20251108_140606](https://github.com/user-attachments/assets/099bd466-8ebf-4ade-acdc-bf5d67f77442)
 ![20251108_141946](https://github.com/user-attachments/assets/ab1fb402-526d-4b74-940f-f569dcf340e8)
