@@ -75,7 +75,9 @@ The project demonstrates how embedded hardware can interact with cloud AI models
    const char* password = "YOUR_PASSWORD";
 
 ## 🔹 OUTPUT AND RESULT
+<img width="1049" height="417" alt="Screenshot 2025-11-08 142020" src="https://github.com/user-attachments/assets/09c26c90-9824-4779-87f3-6a0b80a36499" />
 
-<img width="1920" height="1080" alt="08 11 2025_12 24 07_REC" src="https://github.com/user-attachment![Uploading 20251108_140510.jpg…]()
-s/assets/2860a1ef-8ac5-4f84-be56-1efc5ecd239a" /> 
-
+![20251108_140510](https://github.com/user-attachments/assets/c3cb9094-a34a-4250-8fe2-f95f02393c77)
+![20251108_140518](https://github.com/user-attachments/assets/29bdf7eb-e4ee-4850-9d70-0da0c6eea7c4)
+<img width="1919" height="1024" alt="Screenshot 2025-11-07 232655" src="https://github.com/user-attachments/assets/907ee161-e056-4d15-9379-1273f717964d" />
+<img width="1919" height="1079" alt="Screenshot 2025-11-08 141953" src="https://github.com/user-attachments/assets/42a8d54e-a133-4b57-bcad-54986dcc9814" />
