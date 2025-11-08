@@ -1,6 +1,7 @@
 /*
  * ESP32_AI_Connect - Gemini Chatbot with Web + OLED + LED
- * Author: ANBU_SELVAN+GEMINI
+ * Author: Anbu Selvan
+ * Date: 2025
  */
 
 #include <WiFi.h>
@@ -10,9 +11,9 @@
 
 #define LED_PIN 2   // LED indicator pin
 
-const char* ssid = "ssid";
-const char* password = "wifi_pass;
-const char* apiKey   = "your key";
+const char* ssid = "YOUR_SSID";
+const char* password = "YOUR_WIFI_PASS";
+const char* apiKey   = "YOUR_GEMINI_KEY";
 const char* model    = "gemini-2.0-flash";
 const char* platform = "gemini";
 
@@ -102,6 +103,38 @@ String getAIResponse(const String &msg) {
   return res;
 }
 
+// ===== BOOT ANIMATION =====
+void showBootAnimation() {
+  u8g2.clearBuffer();
+  u8g2.setFont(u8g2_font_6x10_tf);
+
+  for (int i = 0; i < 3; i++) {
+    u8g2.clearBuffer();
+    u8g2.drawStr(15, 30, "GEMINI-GPT");
+    u8g2.sendBuffer();
+    delay(300);
+    u8g2.clearBuffer();
+    u8g2.drawStr(15, 30, "BY ANBU");
+    u8g2.sendBuffer();
+    delay(300);
+  }
+
+  // Final fade-in animation
+  for (int y = 64; y >= 20; y -= 2) {
+    u8g2.clearBuffer();
+    u8g2.setFont(u8g2_font_8x13B_tf);
+    u8g2.drawStr(10, y, "GEMINI-GPT");
+    u8g2.setFont(u8g2_font_6x12_tf);
+    u8g2.drawStr(28, y + 16, "BY ANBU");
+    u8g2.sendBuffer();
+    delay(50);
+  }
+
+  delay(1000);
+  u8g2.clearBuffer();
+  u8g2.sendBuffer();
+}
+
 // ===== WEB PAGE =====
 const char htmlPage[] PROGMEM = R"rawliteral(
 <!DOCTYPE html><html><head>
@@ -153,55 +186,22 @@ void handleAsk() {
   lastQ = server.arg("question");
   Serial.println("📩 Web Query: " + lastQ);
 
-  // --- Show question on OLED ---
-  String queryText = "Query: " + lastQ;
-  displayTextWithScroll(queryText);   // scroll question first
+  // --- Display query on OLED ---
+  displayTextWithScroll("Query: " + lastQ);
 
-  // --- Show thinking animation ---
+  // --- LED thinking animation ---
   showThinkingAnimation();
 
   // --- Get AI response ---
   String res = filterResponse(getAIResponse(lastQ));
   lastA = res;
 
-  // --- Show AI response on OLED ---
-  String aiText = "AI: " + res;
-  displayTextWithScroll(aiText);      // scroll answer
+  // --- Display AI response on OLED ---
+  displayTextWithScroll("AI: " + res);
 
-  // --- Update web page ---
   handleRoot();
 }
-// ===== BOOT ANIMATION =====
-void showBootAnimation() {
-  u8g2.clearBuffer();
-  u8g2.setFont(u8g2_font_6x10_tf);
 
-  for (int i = 0; i < 3; i++) {
-    u8g2.clearBuffer();
-    u8g2.drawStr(15, 30, "GEMINI-GPT");
-    u8g2.sendBuffer();
-    delay(300);
-    u8g2.clearBuffer();
-    u8g2.drawStr(15, 30, "BY ANBU");
-    u8g2.sendBuffer();
-    delay(300);
-  }
-
-  // Final fade-in animation
-  for (int y = 64; y >= 20; y -= 2) {
-    u8g2.clearBuffer();
-    u8g2.setFont(u8g2_font_8x13B_tf);
-    u8g2.drawStr(10, y, "GEMINI-GPT");
-    u8g2.setFont(u8g2_font_6x12_tf);
-    u8g2.drawStr(28, y + 16, "BY ANBU");
-    u8g2.sendBuffer();
-    delay(50);
-  }
-
-  delay(1000);
-  u8g2.clearBuffer();
-  u8g2.sendBuffer();
-}
 // ===== SETUP =====
 void setup() {
   Serial.begin(115200);
@@ -210,7 +210,8 @@ void setup() {
   digitalWrite(LED_PIN, LOW);
 
   u8g2.begin();
-  showBootAnimation(); 
+  showBootAnimation();  // Boot animation
+
   u8g2.clearBuffer();
   u8g2.setFont(u8g2_font_6x10_tf);
   u8g2.drawStr(0, 10, "Connecting WiFi...");
@@ -241,9 +242,10 @@ void loop() {
     String msg = Serial.readStringUntil('\n');
     msg.trim();
     if (msg.length() > 0) {
+      displayTextWithScroll("Query: " + msg);
       showThinkingAnimation();
       String res = filterResponse(getAIResponse(msg));
-      displayTextWithScroll(res);
+      displayTextWithScroll("AI: " + res);
       lastQ = msg;
       lastA = res;
       Serial.println("AI: " + res);
