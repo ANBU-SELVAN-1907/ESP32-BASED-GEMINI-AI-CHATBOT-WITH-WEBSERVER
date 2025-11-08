@@ -42,6 +42,9 @@ The project demonstrates how embedded hardware can interact with cloud AI models
 - **OLED Display** (SSD1315 / NFP1315 compatible, 128×64)  
 - **LED** (optional, built-in or external, connected to pin 2)  
 - **USB cable** for programming and serial monitor  
+![v-nodemcu-esp32-c](https://github.com/user-attachments/assets/2c5f5a03-9a33-4045-ad36-39f6957fb283) ![41C9LvJDlfL _AC_UF1000,1000_QL80_](https://github.com/user-attachments/assets/9ab59174-7555-4852-991a-156ffd3f3b1a)
+
+
 
 ---
 
@@ -70,3 +73,9 @@ The project demonstrates how embedded hardware can interact with cloud AI models
    ```cpp
    const char* ssid = "YOUR_SSID";
    const char* password = "YOUR_PASSWORD";
+
+## 🔹 OUTPUT AND RESULT
+
+<img width="1920" height="1080" alt="08 11 2025_12 24 07_REC" src="https://github.com/user-attachment![Uploading 20251108_140510.jpg…]()
+s/assets/2860a1ef-8ac5-4f84-be56-1efc5ecd239a" /> 
+
